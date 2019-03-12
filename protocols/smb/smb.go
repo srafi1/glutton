@@ -233,10 +233,7 @@ func MakeComTransaction2Error(header SMBHeader) ([]byte, error) {
 }
 
 func MakeNegotiateProtocolResponse(header SMBHeader) ([]byte, error) {
-	id, err := uuid.NewV4()
-    if err != nil {
-        return nil, err
-    }
+	id := uuid.NewV4()
 	smb := NegotiateProtocolResponse{}
 	smb.Header.Protocol = header.Protocol
 	smb.Header.Command = header.Command
